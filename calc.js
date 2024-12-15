@@ -32,29 +32,20 @@ const another = async () =>{
         message: 'new equasion'
     })
     const symbol =/[-+*/]/g
-    const numbers = /([-+]?[0-9]*\.?[0-9]+)/g
+    const numbers = /([0-9]*\.?[0-9]+)/g
     const full = nwnum.match(symbol)
     const nums = nwnum.match(numbers)
+    const symblmtch =  full ? full[0] : null
+    console.log(symblmtch)
+    console.log(typeof symblmtch)
+    console.log(Symbol(symblmtch))
     total = fulltotal
     console.log(full)
     console.log("nums", nums[0])
-    switch(full[0]){
-        case '+':
-            total += Number(nums[0])
-            break;
-        case '-':
-            total -= Number(nums[0])
-            break;
-        case '*':
-            total *= Number(nums[0])
-            break;
-        case '/':
-            total /= Number(nums[0])
-            break;
-        default:
-            console.log('default')
-    }
-    
+           const operation = `total ${symblmtch}= ${Number(nums[0])}`
+           console.log(operation)
+           eval(operation)
+   
     fulltotal = total
     console.log(fulltotal)
     return( fulltotal, show())
